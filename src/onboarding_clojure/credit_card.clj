@@ -34,4 +34,10 @@
                                  ]}
               })
 
+(println "cliente:")
 (println cliente)
+
+(println "compras:")
+(println (-> cliente
+             :cartao
+             :compras))
