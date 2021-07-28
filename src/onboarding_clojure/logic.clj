@@ -28,17 +28,21 @@
 
 (println "\n\nBuscando compras pelo estabelecimento:")
 
-(defn compras-no-estabelecimento
-  [estabelecimento compra]
-  (= estabelecimento (:estabelecimento compra) ))
 
-(defn filtrando-compras-pelo-estabelecimento
-  [estabelecimento compras]
-  (filter #(compras-no-estabelecimento estabelecimento %) compras)
-  )
+(defn compras-por-estabelecimento-ou-valor
+  [filtro compra]
+  (if ( = (class filtro) java.lang.String)
+    (= filtro (:estabelecimento compra))
+  (= filtro (:valor compra))))
+
+(defn filtrando-compras
+  [filtro compras]
+  (filter #(compras-por-estabelecimento-ou-valor filtro %) compras))
 
 (let [compras (-> o.db/cliente
                 :cartao
                 :compras)]
-  (println  (filtrando-compras-pelo-estabelecimento "Edu Pay" compras))
-  )
+  (println  (filtrando-compras "Restaurante Code" compras))
+  (println  (filtrando-compras "Restaurante" compras))
+  (println  (filtrando-compras 250.00 compras)))
+
