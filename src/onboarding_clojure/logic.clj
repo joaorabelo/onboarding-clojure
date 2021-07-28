@@ -29,11 +29,16 @@
 (println "\n\nBuscando compras pelo estabelecimento:")
 
 (defn compras-no-estabelecimento
-  [compra]
-  (= "Restaurante Code" (:estabelecimento compra) ))
+  [estabelecimento compra]
+  (= estabelecimento (:estabelecimento compra) ))
+
+(defn filtrando-compras-pelo-estabelecimento
+  [estabelecimento compras]
+  (filter #(compras-no-estabelecimento estabelecimento %) compras)
+  )
 
 (let [compras (-> o.db/cliente
                 :cartao
                 :compras)]
-  (println "filter" (filter compras-no-estabelecimento compras))
+  (println  (filtrando-compras-pelo-estabelecimento "Edu Pay" compras))
   )
