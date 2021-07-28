@@ -18,9 +18,22 @@
   {:categoria       categoria
    :valor-total (total-das-compras compras)})
 
-(println "Valor Total Gasto Por Categoria:")
+(println "\n\nValor Total Gasto Por Categoria:")
 (println (->> o.db/cliente
     :cartao
     :compras
      (group-by :categoria)
               (map valor-total-por-categoria)))
+
+
+(println "\n\nBuscando compras pelo estabelecimento:")
+
+(defn compras-no-estabelecimento
+  [compra]
+  (= "Restaurante Code" (:estabelecimento compra) ))
+
+(let [compras (-> o.db/cliente
+                :cartao
+                :compras)]
+  (println "filter" (filter compras-no-estabelecimento compras))
+  )
