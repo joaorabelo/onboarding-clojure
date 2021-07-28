@@ -8,7 +8,7 @@
                        :cvv 187
                        :limite 2980
                        :compras [{:data "27-07-2021"
-                                 :valor 30.00
+                                 :valor 50.00
                                  :estabelecimento "Restaurante Code"
                                  :categoria "Alimentação"}
                                  {:data "27-07-2021"
