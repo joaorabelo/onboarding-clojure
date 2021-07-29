@@ -1,5 +1,6 @@
 (ns onboarding_clojure.logic
   (:require [onboarding_clojure.credit_card :as o.db]))
+(use 'java-time)
 
 (println "Listagem de compras:")
 (println (-> o.db/cliente
@@ -45,3 +46,20 @@
   (println  (filtrando-compras :estabelecimento "Restaurante Code" compras))
   (println  (filtrando-compras :estabelecimento "Restaurante" compras))
   (println  (filtrando-compras :valor 250.00 compras)))
+
+(println "\n\nCálculo do valor da fatura do mês")
+
+(defn calcular-mes
+  [inicial final compra]
+  (and (after? final (:data compra))
+       (before? inicial (:data compra))
+       ))
+
+(defn filtrando-compras-mes
+  [inicial final compras]
+  (filter #(calcular-mes inicial final %) compras))
+
+(let [compras (-> o.db/cliente
+                  :cartao
+                  :compras)]
+  (println  (total-das-compras (filtrando-compras-mes (local-date-time 2021 06 01 9 00) (local-date-time 2021 07 01 9 00) compras))))

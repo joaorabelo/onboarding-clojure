@@ -1,4 +1,5 @@
 (ns onboarding_clojure.credit_card)
+(use 'java-time)
 
 (def cliente {:nome "Paulo"
               :cpf "545.427.300-77"
