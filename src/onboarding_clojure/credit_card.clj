@@ -4,30 +4,30 @@
               :cpf "545.427.300-77"
               :email "paulo@gmail.com"
               :cartao {:numero 5137516643135932
-                       :validade "27-06-2023"
+                       :validade (local-date-time 2022 05 18 0 00)
                        :cvv 187
                        :limite 2980
-                       :compras [{:data "27-07-2021"
+                       :compras [{:data (local-date-time 2021 07 18 0 00)
                                  :valor 50.00
                                  :estabelecimento "Restaurante Code"
                                  :categoria "Alimentação"}
-                                 {:data "27-07-2021"
+                                 {:data (local-date-time 2021 07 19 8 00)
                                   :valor 730.00
                                   :estabelecimento "Restaurante Code"
                                   :categoria "Alimentação"}
-                                 {:data "27-07-2021"
+                                 {:data (local-date-time 2021 07 29 8 00)
                                   :valor 150.00
                                   :estabelecimento "Edu Pay"
                                   :categoria "Educação"}
-                                 {:data "27-07-2021"
+                                 {:data (local-date-time 2021 06 29 8 00)
                                   :valor 1205.00
                                   :estabelecimento "Edu Pay"
                                   :categoria "Educação"}
-                                 {:data "27-07-2021"
+                                 {:data (local-date-time 2021 06 15 9 00)
                                   :valor 250.00
                                   :estabelecimento "Hospital A"
                                   :categoria "Saúde"}
-                                 {:data "28-07-2021"
+                                 {:data (local-date-time 2021 05 29 8 00)
                                   :valor 150.99
                                   :estabelecimento "Hospital B"
                                   :categoria "Saúde"}

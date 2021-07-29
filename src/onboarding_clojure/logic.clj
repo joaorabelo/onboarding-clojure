@@ -45,4 +45,3 @@
   (println  (filtrando-compras :estabelecimento "Restaurante Code" compras))
   (println  (filtrando-compras :estabelecimento "Restaurante" compras))
   (println  (filtrando-compras :valor 250.00 compras)))
-
